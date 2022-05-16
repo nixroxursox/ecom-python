@@ -1,6 +1,3 @@
-
-
-
 import os
 import sys
 from logging.config import fileConfig
@@ -15,6 +12,19 @@ sys.path.append(BASE_DIR)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
+
+
+def get_app_settings():
+    with open("./.env", "r") as f:
+        conf = f.readlines()
+        for k,x,v in conf:
+            print(' {} {} {}'.format(k,x,v))
+            f.close()
+    return kxv
+
+dbold = get_app_settings()
+print(dbold)
+
 config = context.config
 
 # Interpret the config file for Python logging.
